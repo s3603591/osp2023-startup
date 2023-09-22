@@ -1,7 +1,12 @@
 #include "pcb.h"
 
-#include <vector>
+#include <deque>
 #include <fstream>
+
+struct process{
+    int pid;
+    int bt;
+};
 
 int main(int argc, char** argv) {
     if (argc == 2) {
@@ -14,21 +19,22 @@ int main(int argc, char** argv) {
             int pid;
             int bt;
             int num_proc = 1;
-            std::vector queue;
+            std::deque<process> queue;
 
-            // Add process to the vector
+            // Add process to the deque
             while(std::getline(file,token,',')){
-                pcb pcb;
+                process process;
                 pid = token[0];
                 bt = token[1];
 
-                pcb.id = pid;
-
+                process.pid = pid;
+                process.bt = bt;
+                queue.push_back(process);
                 num_proc++;
             }
             int wt[num_proc];
         }
-    file.close()
+    file.close();
     } else {
         std::cout << "./fifo [datafile]";
     }
