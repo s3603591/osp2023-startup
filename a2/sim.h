@@ -31,6 +31,7 @@ class SJF_Sim {
     public:
     SJF_Sim(std::vector<pcb> data);
     ~SJF_Sim();
+    void sort_data();
     void print();
 };
 

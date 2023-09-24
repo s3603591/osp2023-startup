@@ -10,10 +10,10 @@ clean:
 fifo: fifo.o loader.o fifo_s.o pcb.o
 	g++ -Wall -Werror -std=c++20 -g -O -o $@ $^
 
-sjf: sjf.o loader.o sjf_s.o
+sjf: sjf.o loader.o sjf_s.o pcb.o
 	g++ -Wall -Werror -std=c++20 -g -O -o $@ $^
 
-rr: rr.o loader.o rr_s.o
+rr: rr.o loader.o rr_s.o pcb.o
 	g++ -Wall -Werror -std=c++20 -g -O -o $@ $^
 
 %.o: %.cpp
