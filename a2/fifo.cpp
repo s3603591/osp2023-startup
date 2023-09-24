@@ -1,4 +1,4 @@
-#include "pcb.h"
+#include "loader.h"
 
 #include <deque>
 #include <fstream>
@@ -12,12 +12,11 @@ int main(int argc, char** argv) {
     if (argc == 2) {
         // Load the datafile
         std::string data(argv[1]);
-        std::string token;
+        loader loader(data);
+        std::deque<pcb> load = loader.load();
 
-        if (file.is_open()) {
-            
-        }
-    file.close();
+
+
     } else {
         std::cout << "./fifo [datafile]";
     }

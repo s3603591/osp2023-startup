@@ -1,26 +1,25 @@
-#include "pcb.h"
-#include <fstream>
-#include <deque>
+#include "loader.h"
 
-#define DELIMITER ','
+loader::loader(std::string data){
+    datafile.open(data);
+    std::string line;
+    while(std::getline(datafile, line)){
+        pcb pcb;
+        std::istringstream iss(line);
+        std::string pid, bt;
 
-class loader {
-    std::ifstream datafile;
-    std::deque<pcb> datastream;
+        std::getline(iss, pid, DELIMITER);
+        std::getline(iss, bt, DELIMITER);
 
-    public:
-    loader(std::string data){
-        datafile.open(data);
-        std::string token;
-        while(std::getline(datafile, token, DELIMITER)){
-            pcb pcb;
-            pcb.setID(std::stoi(token));
-            datastream.push_back(pcb);
-        }
+        pcb.setID(std::stoi(pid));
+        pcb.setTotalTime(std::stoi(bt));
+        
+        datastream.push_back(pcb);
     }
+}
 
-    std::deque<pcb> load() {
-        return datastream;
-    }
-    
-};
+loader::~loader() {}
+
+std::deque<pcb> loader::load() {
+    return datastream;
+}

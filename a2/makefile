@@ -3,9 +3,9 @@
 all: clean fifo sjf rr
 
 clean:
-	rm -rf mtcopier *.o *.dSYM
+	rm -rf fifo *.o *.dSYM
 
-fifo:
+fifo: fifo.o loader.o
 	g++ -Wall -Werror -std=c++20 -g -O -o $@ $^
 sjf:
 	g++ -Wall -Werror -std=c++20 -g -O -o $@ $^
