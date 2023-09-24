@@ -25,4 +25,9 @@ class pcb {
     // max and min duration for a process in our system.
     static constexpr osp2023::time_type MAX_DURATION = 100;
     static constexpr osp2023::time_type MIN_DURATION = 10;
+
+    void setID(int id);
+    void setTotalTime(int tt);
+    void setTimeUsed(int tu);
+    void setTotalWaitTime(int twt);
 };
