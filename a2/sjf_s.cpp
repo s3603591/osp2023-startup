@@ -52,7 +52,7 @@ void SJF_Sim::sort_data(){
     }
 }
 
-// Print FIFO Results
+// Print SJF Results
 void SJF_Sim::print(){
     std::cout << "Proc" << "\t";
     std::cout << "Burst Time" << "\t";

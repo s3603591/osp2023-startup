@@ -1,5 +1,7 @@
 #include "loader.h"
-#include <deque>
+#include "sim.h"
+#include <vector>
+#include <fstream>
 
 int main(int argc, char** argv) {
     if (argc == 3) {
@@ -13,7 +15,10 @@ int main(int argc, char** argv) {
         }
         
         loader loader(data);
-        std::deque<pcb> readyQ = loader.load();
+        std::vector<pcb> load = loader.load();
+
+        RR_Sim RR_Sim(load);
+        RR_Sim.print();
 
 
         

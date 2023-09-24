@@ -49,5 +49,5 @@ class RR_Sim {
     public:
     RR_Sim(std::vector<pcb> data);
     ~RR_Sim();
-    
+    void print();
 };
