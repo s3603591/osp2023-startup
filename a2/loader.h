@@ -2,18 +2,17 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <deque>
+#include <vector>
 
 #define DELIMITER ','
 
 class loader {
     private:
     std::ifstream datafile;
-    std::deque<pcb> datastream;
+    std::vector<pcb> datastream;
 
     public:
     loader(std::string data);
     ~loader();
-    std::deque<pcb> load();
-    
+    std::vector<pcb> load();
 };
