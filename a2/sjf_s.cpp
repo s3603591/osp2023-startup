@@ -40,14 +40,15 @@ void SJF_Sim::sort_data(){
             if (readyQ[j].bt < readyQ[idx].bt) {
                 idx = j;
             }
+            if (idx != i){
+                long temp_bt = readyQ[i].bt;
+                readyQ[i].bt = readyQ[idx].bt;
+                readyQ[idx].bt = temp_bt;
 
-            long temp_bt = readyQ[i].bt;
-            readyQ[i].bt = readyQ[idx].bt;
-            readyQ[idx].bt = temp_bt;
-
-            int temp_pid = readyQ[i].pid;
-            readyQ[i].pid = readyQ[idx].pid;
-            readyQ[idx].pid = temp_pid;
+                int temp_pid = readyQ[i].pid;
+                readyQ[i].pid = readyQ[idx].pid;
+                readyQ[idx].pid = temp_pid;
+            }
         }
     }
 }

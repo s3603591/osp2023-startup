@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
         loader loader(data);
         std::vector<pcb> load = loader.load();
 
-        RR_Sim RR_Sim(load);
+        RR_Sim RR_Sim(load,quant);
         RR_Sim.print();
 
 

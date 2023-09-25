@@ -6,6 +6,7 @@ void pcb::setPCB(int pid, long bt) {
     this->tat = 0;
     this->wt = 0;
     this->rt = 0;
+    this->arrt = 0;
 }
 
 void pcb::print(){
